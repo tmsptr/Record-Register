@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const { devNull } = require('os');
+//const { devNull } = require('os');
 const path = require('path');
 const Record = require('./models/record');
 const methodOverride = require('method-override');
@@ -34,12 +34,41 @@ app.get('/new', (req, res) => {
     res.render('./new');
 })
 
+app.post('/index', async (req, res) => {
+    //if(!req.body.campground) throw new ExpressError('Invalid Campground DATAAAA', 400);
+    const record = new Record(req.body.music);
+    console.log(record);
+    await record.save();
+    res.redirect(`/${record._id}`);
+    
+})
+
 app.get('/:id', async (req, res) => {
     const record = await Record.findById(req.params.id);
     console.log(record);
     res.render('./show', {record});
 });
 
-app.listen(3888, () => {
-    console.log('LISTENING TO PORT 3888');
+app.get('/:id/edit', async (req, res) => {
+    const record = await Record.findById(req.params.id);
+    res.render('./edit', {record});
+})
+
+app.put('/:id', async (req, res) => {
+    const {id} = req.params;
+    const record = await Record.findByIdAndUpdate(id, {...req.body.record});
+    record.save();
+    res.redirect(`/${record._id}`);
+})
+
+app.delete('/:id', async (req, res) => {
+    console.log('IT IS HERE');
+    const {id} = req.params;
+    
+    await Record.findByIdAndDelete(id);
+    res.redirect('/');
+})
+
+app.listen(3000, () => {
+    console.log('LISTENING TO PORT 3000');
 })

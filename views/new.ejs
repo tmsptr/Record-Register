@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="#">
     <title>Add new record</title>
 </head>
 <body>
     <h2>Search for records <span><a href="/">Home</a></span></h2>
-    <h3>Enter bands name to search for records, then click on record name to save it to your collection</h3>
+    <h3>Enter bands name to search for records</h3>
     <form action="" id="searchForm">
         <input id="query" name="query" type="text" placeholder="search">
         <button id="button">SUBMIT</button>
     </form>
 
-    <section id="results">
-    </section>
+    <form id="results"></form>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>

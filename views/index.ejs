@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+
     <title>Show</title>
 </head>
 <body>
     <h1>These are your records:</h1>
     <ul>
         <% for(record of records) { %>
-        <li><%= record.artistName %> : <a href="<%= record._id %>"><%= record.recordName %></a> : <%= record.recordYear %></li>       
+        <li><%= record.artistName %> : <%= record.recordName %></a> : <%= record.recordYear %>
+            
+            <form action="/<%= record._id%>/edit">
+                <button>Edit</button>
+            </form>     
+            <form method="POST" action="/<%= record._id%>?_method=DELETE">
+                <button >Delete</button>
+            </form>
+        </li>       
         <% } %>  
     </ul>
     <a href="/">Home</a>

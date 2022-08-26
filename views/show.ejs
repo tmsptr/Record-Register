@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <%= record.artistName %> - <%= record.recordName %></title>
+    <link rel="shortcut icon" href="#">
+    <title>Add new record</title>
 </head>
 <body>
-    <h1>Details</h1>
-    <h2><%= record.artistName %> <%= record.recordName %> <%= record.recordYear %></h2>
-    <a href="/index">All records</a>
+    <h2>Search for records <span><a href="/">Home</a></span></h2>
+    <h3>Enter bands name to search for records</h3>
+    <form action="" id="searchForm">
+        <input id="query" name="query" type="text" placeholder="search">
+        <button id="button">SUBMIT</button>
+    </form>
+
+    <form id="results"></form>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+   
 </body>
 </html>

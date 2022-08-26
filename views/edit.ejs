@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <title>Edit Record</title>
+</head>
+<body>
+    <form method="POST" action="/<%= record.id %>?_method=PUT">
+        <div>
+            <label for="artistName">Band Name</label>
+            <input name="record[artistName]" type="text" id="artistName" value="<%= record.artistName %>" >
+        </div>
+        <div>
+            <label for="recordName">Record Name</label>
+            <input name="record[recordName]" type="text" id="recordName" value="<%= record.recordName %>" >
+        </div>
+        <div>
+            <label for="recordYear">Record Year</label>
+            <input name="record[recordYear]" type="text" id="recordYear" value="<%= record.recordYear %>" >
+        </div>
+        <button>Update Record</button>
+    </form>
+</body>
+</html>
